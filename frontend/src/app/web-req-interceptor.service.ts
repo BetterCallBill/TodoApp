@@ -25,7 +25,7 @@ export class WebReqInterceptorService {
 
   addAuthHeader(request: HttpRequest<any>) {
     // get the access token
-    const token = this.authService.getAccessToken(request);
+    const token = this.authService.getAccessToken();
 
     if (token) {
       // append the access token to the request header
