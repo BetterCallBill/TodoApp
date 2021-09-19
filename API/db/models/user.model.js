@@ -83,6 +83,10 @@ UserSchema.methods.createSession = function () {
 
 //#region STATIC METHODS
 
+UserSchema.statics.getJWTSecret = () => {
+	return jwtSecret;
+}
+
 // find user by id and token
 UserSchema.statics.findByIdAndToken = function (_id, token) {
 	const User = this;
@@ -120,7 +124,6 @@ UserSchema.statics.hasRefreshTokenExpired = (expiresAt) => {
 }
 
 //#endregion
-
 
 //#region  MIDDLEWARE
 // run before save the user document
